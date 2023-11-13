@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from database import engine
 from sqlalchemy import select
+from sqlalchemy.orm import Session
 from fastapi.responses import PlainTextResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -30,13 +31,16 @@ async def http_exception_handler(request,exc):
     return PlainTextResponse(str(exc.detail), status_code=exc.status_code)
 
 @app.post("/product")
-def create(product: Products, db:Session = Depends(get_db)):
+def create(product: ProductSchema, db:Session = Depends(get_db)):
     new_product = models.ProductModel(**product.dict())
     db.add(new_product)
     db.commit()
     db.refresh(new_product)
     return new_product
 
+@app.get("/")
+async def get_root():
+    return "Hello World"
 
 
 # # main.py

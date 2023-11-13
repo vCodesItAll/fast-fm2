@@ -1,5 +1,4 @@
 from typing import Optional
-
 from pydantic import BaseModel, EmailStr
 
 class ProductSchema(BaseModel):
@@ -7,6 +6,7 @@ class ProductSchema(BaseModel):
     description: str | None = None
     at_sale: bool = False
     inventory: int
+    added_at: str
 
 # class UserCreate(UserBase):
 
