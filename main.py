@@ -1,22 +1,19 @@
-from fastapi import FastAPI, Depends
-from database import engine
-from sqlalchemy import select
-from sqlalchemy.orm import Session
-from fastapi.responses import PlainTextResponse
-from starlette.exceptions import HTTPException as StarletteHTTPException
-from fastapi.middleware.cors import CORSMiddleware
-import models
-from schemas import ProductSchema 
-from database import get_db
+# Import necessary components from 'imports.py' within the 'utils' directory
+from app.utils.imports import app, router, Base, engine, get_db, models, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, FastAPI
+
+
 
 app = FastAPI()
 
+# handwaving
 origins = [
     "http://8000-coachhallso-fastapiauth-ncq61p1ghmk.ws-us106.gitpod.io"
 ]
 
+# handwaving
 models.Base.metadata.create_all(bind=engine)
 
+# handwaving
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -25,22 +22,23 @@ app.add_middleware(
     allow_headers=["*"],
     )
 
+# tells me which error I have
 @app.exception_handler(StarletteHTTPException)
 async def http_exception_handler(request,exc):
     print(f"{repr(exc)}")
     return PlainTextResponse(str(exc.detail), status_code=exc.status_code)
 
-@app.post("/product")
-def create(product: ProductSchema, db:Session = Depends(get_db)):
-    new_product = models.ProductModel(**product.dict())
-    db.add(new_product)
-    db.commit()
-    db.refresh(new_product)
-    return new_product
+# @app.post("/product")
+# def create(product: ProductSchema, db:Session = Depends(get_db)):
+#     new_product = models.ProductModel(**product.dict())
+#     db.add(new_product)
+#     db.commit()
+#     db.refresh(new_product)
+#     return new_product
 
 @app.get("/")
 async def get_root():
-    return "Hello World"
+    return {"message": "Welcome to Vanessify"}
 
 
 # # main.py
