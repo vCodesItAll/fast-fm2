@@ -1,13 +1,14 @@
 from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional
 
-class PlaylistBase(BaseModel):
-    name: str
+class PlayBase(BaseModel):
+    song_id: int
     user_id: int
+    played_at: Optional[str]
 
-class PlaylistCreate(PlaylistBase):
+class PlayCreate(PlayBase):
     pass
 
-class Playlist(PlaylistBase):
+class Play(PlayBase):
     id: int
 
     class Config:
