@@ -1,14 +1,13 @@
-from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table
+from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship
 
 
-
-# Junction table for many-to-many relationship between albums and artists
-album_artists = Table(
-    'album_artists',
-    Base.metadata,
-    Column('album_id', Integer, ForeignKey('albums.id')),
-    Column('artist_id', Integer, ForeignKey('artists.id'))
-)
+# # Junction table for many-to-many relationship between albums and artists
+# album_artists = Table(
+#     'album_artists',
+#     Base.metadata,
+#     Column('album_id', Integer, ForeignKey('albums.id')),
+#     Column('artist_id', Integer, ForeignKey('artists.id'))
+# )
 
 class Album(Base):
     __tablename__ = "albums"
@@ -19,7 +18,8 @@ class Album(Base):
     # Other album attributes here
 
     # Define many-to-many relationship between albums and artists
-    artists = relationship("Artist", secondary=album_artists, back_populates="albums")
+    songs = relationship("Song", back_populates="album")
+    artists = relationship("Artist", secondary="song_artists", back_populates="albums")
 
     # Stretch goal - returning album data as a dictionary
     def as_dict(self):
