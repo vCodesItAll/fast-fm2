@@ -1,5 +1,4 @@
-from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship
-# # Pivot table for many-to-many relationship between albums and artists
+from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime# # Pivot table for many-to-many relationship between albums and artists
 # album_artists = Table(
 #     'album_artists',
 #     Base.metadata,
