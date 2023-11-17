@@ -13,9 +13,8 @@ from sqlalchemy.orm import sessionmaker, Session, relationship
 from pydantic import BaseModel
 
 # Other necessary imports used across your project
-import models
-from schemas import ProductSchema
-from database import engine, get_db
+
+from database import engine, get_db, SessionLocal
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 # Create instances or objects where necessary
@@ -23,12 +22,36 @@ app = FastAPI()
 router = APIRouter()
 Base = declarative_base()
 
-import sys
+import sys, models, schemas, app.utils, database
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent / 'utils'))
 from typing import Optional, List
+from pytest import Session
 
+
+# Import all models
+from app.models.album_model import AlbumModel
+from app.models.artist_model import ArtistModel
+from app.models.genre_model import GenreModel
+from app.models.playlist_model import PlaylistModel
+from app.models.plays_model import PlaysModel
+from app.models.song_model import SongModel
+from app.models.user_model import UserModel
+
+# Import all schemas
+from app.schemas.album_schema import Album, AlbumBase, AlbumCreate
+from app.schemas.artist_schema import Artist, ArtistBase, ArtistCreate
+from app.schemas.genre_schema import Genre, GenreBase, GenreCreate
+from app.schemas.playlist_schema import Playlist, PlaylistBase, PlaylistCreate
+from app.schemas.plays_schema import Plays, PlaysBase, PlaysCreate
+from app.schemas.song_schema import Song, SongBase, SongCreate
+from app.schemas.user_schema import User, UserBase, UserCreate
+
+# Import all routes
+
+# don't have routes yet
 
 # copy this import into other files
 # from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship
-from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List
+# from app.utils.imports import app, router, Base, engine, get_db, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List, Session, database, APIRouter, Depends, SessionLocal,FastAPI, AlbumModel, ArtistModel, GenreModel, PlaylistModel, PlaysModel, SongModel, UserModel, Album, AlbumBase, AlbumCreate, Artist, ArtistBase, ArtistCreate, Genre, GenreBase, GenreCreate, Playlist, PlaylistBase, PlaylistCreate, Plays, PlaysBase, PlaysCreate, Song, SongBase, SongCreate, User, UserBase, UserCreate 
+
