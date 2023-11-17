@@ -1,6 +1,4 @@
-from app import controllers
-from app.utils.imports import router, get_db, Session, Depends, SessionLocal, APIRouter
-from app.schemas.user_schema import User, UserCreate
+from app.utils.imports import router, get_db, Session, Depends, SessionLocal, APIRouter, controllers, User, UserCreate
 
 router = APIRouter()
 
