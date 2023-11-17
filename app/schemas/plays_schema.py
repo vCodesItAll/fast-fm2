@@ -1,6 +1,5 @@
 from app.utils.imports import BaseModel, Optional
 
-
 class PlaysBase(BaseModel):
     song_id: int
     user_id: int

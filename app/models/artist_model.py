@@ -1,20 +1,5 @@
 from app.utils.imports import Base, Column, Integer, String, relationship
 
-# album_artists = Table(
-#     'album_artists',
-#     Base.metadata,
-#     Column('album_id', Integer, ForeignKey('albums.id')),
-#     Column('artist_id', Integer, ForeignKey('artists.id'))
-# )
-
-# # Pivot table for many-to-many relationship between songs and artists
-# song_artists = Table(
-#     'song_artists',
-#     Base.metadata,
-#     Column('song_id', Integer, ForeignKey('songs.id')),
-#     Column('artist_id', Integer, ForeignKey('artists.id'))
-# )
-
 class ArtistModel(Base):
     __tablename__ = "artists"
 

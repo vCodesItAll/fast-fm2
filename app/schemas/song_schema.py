@@ -1,6 +1,5 @@
 from app.utils.imports import BaseModel, Optional, List
 
-
 class SongBase(BaseModel):
     title: str
     duration_seconds: int
