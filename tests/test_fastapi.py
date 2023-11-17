@@ -1,8 +1,5 @@
-from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-import pytest
-import httpx
 
 # importing the sys module
 import sys        
