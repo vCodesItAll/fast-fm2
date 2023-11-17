@@ -8,7 +8,7 @@ origins = [
     "http://8000-coachhallso-fastapiauth-ncq61p1ghmk.ws-us106.gitpod.io"
 ]
 
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
     CORSMiddleware,

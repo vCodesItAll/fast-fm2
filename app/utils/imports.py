@@ -28,14 +28,15 @@ sys.path.append(str(Path(__file__).resolve().parent.parent / 'utils'))
 from typing import Optional, List
 from pytest import Session
 
+
 # Import all models
-from app.models.album_model import Album
-from app.models.artist_model import Artist
-from app.models.genre_model import Genre
-from app.models.playlist_model import Playlist
-from app.models.plays_model import Plays
-from app.models.song_model import Song
-from app.models.user_model import User
+from app.models.album_model import AlbumModel
+from app.models.artist_model import ArtistModel
+from app.models.genre_model import GenreModel
+from app.models.playlist_model import PlaylistModel
+from app.models.plays_model import PlaysModel
+from app.models.song_model import SongModel
+from app.models.user_model import UserModel
 
 # Import all schemas
 from app.schemas.album_schema import Album, AlbumBase, AlbumCreate
@@ -51,5 +52,5 @@ from app.schemas.user_schema import User, UserBase, UserCreate
 
 # copy this import into other files
 # from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship
-from app.utils.imports import app, router, Base, engine, get_db, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List, Session, database, APIRouter, Depends, SessionLocal,FastAPI, Album, 
+# from app.utils.imports import app, router, Base, engine, get_db, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List, Session, database, APIRouter, Depends, SessionLocal,FastAPI, AlbumModel, ArtistModel, GenreModel, PlaylistModel, PlaysModel, SongModel, UserModel, Album, AlbumBase, AlbumCreate, Artist, ArtistBase, ArtistCreate, Genre, GenreBase, GenreCreate, Playlist, PlaylistBase, PlaylistCreate, Plays, PlaysBase, PlaysCreate, Song, SongBase, SongCreate, User, UserBase, UserCreate 
 
