@@ -14,7 +14,7 @@ from pydantic import BaseModel
 
 # Other necessary imports used across your project
 from schemas import ProductSchema
-from database import engine, get_db
+from database import engine, get_db, SessionLocal
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 # Create instances or objects where necessary
@@ -31,4 +31,4 @@ from pytest import Session
 
 # copy this import into other files
 # from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship
-from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List, Session, schemas, models, controllers_formerly_crud, utils, database
+from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List, Session, schemas, models, controllers_formerly_crud, utils, database, APIRouter, Depends, SessionLocal
