@@ -8,7 +8,7 @@ from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, 
 #     Column('artist_id', Integer, ForeignKey('artists.id'))
 # )
 
-class Album(Base):
+class AlbumModel(Base):
     __tablename__ = "albums"
 
     id = Column(Integer, primary_key=True, index=True)

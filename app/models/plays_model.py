@@ -1,6 +1,6 @@
 from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime
 
-class Play(Base):
+class Plays(Base):
     __tablename__ = "plays"
 
     id = Column(Integer, primary_key=True, index=True)
