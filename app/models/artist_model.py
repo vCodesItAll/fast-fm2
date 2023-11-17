@@ -1,20 +1,4 @@
-# from app.utils.imports import app, router, Base, engine, get_db, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List, Session, database, APIRouter, Depends, SessionLocal,FastAPI, AlbumModel, ArtistModel, GenreModel, PlaylistModel, PlaysModel, SongModel, UserModel, Album, AlbumBase, AlbumCreate, Artist, ArtistBase, ArtistCreate, Genre, GenreBase, GenreCreate, Playlist, PlaylistBase, PlaylistCreate, Plays, PlaysBase, PlaysCreate, Song, SongBase, SongCreate, User, UserBase, UserCreate 
-from app.utils.imports import Base, Column, Integer, String, Date, ForeignKey, Table, relationship
-
-# album_artists = Table(
-#     'album_artists',
-#     Base.metadata,
-#     Column('album_id', Integer, ForeignKey('albums.id')),
-#     Column('artist_id', Integer, ForeignKey('artists.id'))
-# )
-
-# # Pivot table for many-to-many relationship between songs and artists
-# song_artists = Table(
-#     'song_artists',
-#     Base.metadata,
-#     Column('song_id', Integer, ForeignKey('songs.id')),
-#     Column('artist_id', Integer, ForeignKey('artists.id'))
-# )
+from app.utils.imports import Base, Column, Integer, String, relationship
 
 class ArtistModel(Base):
     __tablename__ = "artists"

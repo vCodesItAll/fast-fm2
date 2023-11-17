@@ -1,7 +1,5 @@
-# Import necessary components from 'imports.py' within the 'utils' directory
-# from app.utils.imports import app, router, Base, engine, get_db, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List, Session, database, APIRouter, Depends, SessionLocal, create_user, FastAPI, models
-from app.utils.imports import app, router, Base, engine, get_db, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List, Session, database, APIRouter, Depends, SessionLocal,FastAPI
-from app.utils import creates
+from app.utils.imports import app, Base, engine, StarletteHTTPException, PlainTextResponse, CORSMiddleware, FastAPI, creates
+
 app = FastAPI()
 
 app.include_router(creates.router)
@@ -19,7 +17,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # tells me which error I have
 @app.exception_handler(StarletteHTTPException)
