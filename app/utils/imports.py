@@ -22,7 +22,7 @@ app = FastAPI()
 router = APIRouter()
 Base = declarative_base()
 
-import sys, models, schemas
+import sys, models, schemas, controllers_formerly_crud, utils, database
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent / 'utils'))
 from typing import Optional, List
@@ -31,4 +31,4 @@ from pytest import Session
 
 # copy this import into other files
 # from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship
-from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List, Session, schemas, models
+from app.utils.imports import app, router, Base, engine, get_db, ProductSchema, StarletteHTTPException, PlainTextResponse, CORSMiddleware, sys, Path, relationship, Column, Integer, String, Date, ForeignKey, Table, relationship, DateTime, BaseModel, Optional, List, Session, schemas, models, controllers_formerly_crud, utils, database
