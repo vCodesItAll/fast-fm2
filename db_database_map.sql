@@ -27,13 +27,13 @@ CREATE TABLE song_artists (
     PRIMARY KEY (song_id, artist_id)
 );
 
--- Bridge table for many-to-many relationship between albums and songs
-CREATE TABLE album_songs (
-    album_id INT REFERENCES albums(id),
-    song_id INT REFERENCES songs(id),
-    order INT,
-    PRIMARY KEY (album_id, song_id)
-);
+-- -- Bridge table for many-to-many relationship between albums and songs
+-- CREATE TABLE album_songs (
+--     album_id INT REFERENCES albums(id),
+--     song_id INT REFERENCES songs(id),
+--     order INT,
+--     PRIMARY KEY (album_id, song_id)
+-- );
 
 -- Table for Playlists
 CREATE TABLE playlists (
@@ -42,13 +42,13 @@ CREATE TABLE playlists (
     user_id INT
 );
 
--- Pivot table for many-to-many relationship between playlists and songs
-CREATE TABLE playlist_songs (
-    id SERIAL PRIMARY KEY,
-    playlist_id INT REFERENCES playlists(id),
-    song_id INT REFERENCES songs(id),
-    order INT
-);
+-- -- Pivot table for many-to-many relationship between playlists and songs
+-- CREATE TABLE playlist_songs (
+--     id SERIAL PRIMARY KEY,
+--     playlist_id INT REFERENCES playlists(id),
+--     song_id INT REFERENCES songs(id),
+--     order INT
+-- );
 
 -- Table for Users
 CREATE TABLE users (
@@ -123,6 +123,6 @@ CREATE TABLE song_downloads (
 );
 
 
-ALTER TABLE "menu_items" ADD FOREIGN KEY ("category_id") REFERENCES "categories" ("id");
+-- ALTER TABLE "menu_items" ADD FOREIGN KEY ("category_id") REFERENCES "categories" ("id");
 
-ALTER TABLE "menu_items" ADD FOREIGN KEY ("cuisine_id") REFERENCES "cuisines" ("id");
+-- ALTER TABLE "menu_items" ADD FOREIGN KEY ("cuisine_id") REFERENCES "cuisines" ("id");
